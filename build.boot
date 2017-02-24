@@ -21,5 +21,5 @@
        :version     +version+
        :description "Boot task for invalidating AWS CloudFront resources."
        :url         "https://github.com/tailrecursion/boot-front"
-       :scm         {:url "https://github.com/tailrecursion/boot-cloudfront"}
+       :scm         {:url "https://github.com/tailrecursion/boot-front"}
        :license     {"EPL" "http://www.eclipse.org/legal/epl-v10.html"} })
