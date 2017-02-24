@@ -1,5 +1,5 @@
 # boot-front
-a boot task for invalidating files uploaded to cloudfront.
+a boot task for invalidating cloudfront paths.
 
 [](dependency)
 ```clojure
@@ -8,9 +8,9 @@ a boot task for invalidating files uploaded to cloudfront.
 [](/dependency)
 
 ## overview
-this task inspects the fileset's metadata to identify tmpfiles containing
-keywords with the name "uploaded", then invalidates the paths corresponding
-to their files (see [boot-bucket](https://github.com/tailrecursion/boot-bucket)).
+this task inspects the fileset's metadata to identify files that were uploaded
+by preceeding tasks as indicated by a keyword with the name "uploaded", then
+invalidates their corresponding paths (see [boot-bucket](https://github.com/tailrecursion/boot-bucket)).
 
 ## usage
 excerpt of a build.boot file using boot-front with boot-bucket for deployment.
