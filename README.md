@@ -3,7 +3,7 @@ a boot task for invalidating cloudfront paths.
 
 [](dependency)
 ```clojure
-[tailrecursion/boot-front "0.1.0-SNAPSHOT"] ;; latest release
+[tailrecursion/boot-front "0.1.0"] ;; latest release
 ```
 [](/dependency)
 
