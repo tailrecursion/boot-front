@@ -32,11 +32,9 @@
       (util/info "Invalidating files in the %s cloudfront distribution...\n" distribution)
       (let [uploaded? (partial some (fn [[k]] (= (name k) "uploaded")))
             files     (boot/by-meta [uploaded?] (boot/output-files fileset))]
-        (if (empty? files)
-          (util/info "■ no changed files to invalidate\n")
-          (do
-            (doseq [{:keys [path]} files]
-              (util/info "• %s\n" path))
-            (pod/with-call-in pod
-                (tailrecursion.boot-front.client/invalidate-files! ~*opts* ~(mapv boot/tmp-path files))))))
-      fileset)))
+        (when (empty? files) (util/info "■ no changed files to invalidate\n"))
+        (pod/with-call-in pod
+          (tailrecursion.boot-front.client/invalidate-files! ~*opts* ~(mapv boot/tmp-path files)))
+        (doseq [{:keys [path]} files]
+          (util/info "• %s\n" path))
+       fileset))))
